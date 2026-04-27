@@ -94,7 +94,7 @@ function MathPoly() {
         <icosahedronGeometry args={[0.48, 1]} />
         <meshBasicMaterial color="#2DD4BF" wireframe transparent opacity={0.11} />
       </mesh>
-      <mesh ref={m} position={[-3, 0.8, 0]} rotation={[0.8, 0, 0]}>
+      <mesh ref={r} position={[-3, 0.8, 0]} rotation={[0.8, 0, 0]}>
         <torusGeometry args={[0.68, 0.007, 8, 64]} />
         <meshBasicMaterial color="#2DD4BF" wireframe transparent opacity={0.08} />
       </mesh>

@@ -13,7 +13,6 @@ const navItems = [
   { key: 'projects', path: '/projects', label: nav.projects },
   { key: 'travel', path: '/travel', label: nav.travel },
   { key: 'games', path: '/games', label: nav.games },
-  { key: 'guestbook', path: '/guestbook', label: nav.guestbook },
 ];
 
 const surpriseDestinations = [

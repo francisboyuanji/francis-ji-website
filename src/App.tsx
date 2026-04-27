@@ -8,7 +8,6 @@ import ArtsPage from './pages/ArtsPage';
 import ProjectsPage from './pages/ProjectsPage';
 import TravelPage from './pages/TravelPage';
 import GamesPage from './pages/GamesPage';
-import GuestbookPage from './pages/GuestbookPage';
 import AdminPage from './pages/AdminPage';
 
 function AnimatedRoutes() {
@@ -30,7 +29,6 @@ function AnimatedRoutes() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/travel" element={<TravelPage />} />
           <Route path="/games" element={<GamesPage />} />
-          <Route path="/guestbook" element={<GuestbookPage />} />
           <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </motion.div>

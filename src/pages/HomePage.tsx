@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronDown, Sigma, Dumbbell, Music, FolderOpen, Plane, Gamepad2, MessageSquare } from 'lucide-react';
+import { ChevronDown, Sigma, Dumbbell, Music, FolderOpen, Plane, Gamepad2 } from 'lucide-react';
 import { useI18n } from '../contexts/I18nContext';
-import { hero, entrances, featured, sectionBgs } from '../data/content';
+import { hero, entrances, sectionBgs } from '../data/content';
 import GlassCard, { ScrollReveal, StaggerContainer, StaggerItem } from '../components/GlassCard';
 import Hero3D from '../components/Hero3D';
 
-const entranceKeys = ['mathematics', 'sports', 'arts', 'projects', 'travel', 'games', 'guestbook'] as const;
+const entranceKeys = ['mathematics', 'sports', 'arts', 'projects', 'travel', 'games'] as const;
 type EntranceKey = typeof entranceKeys[number];
 
 const sectionIcons: Record<EntranceKey, React.ReactNode> = {
@@ -16,7 +16,6 @@ const sectionIcons: Record<EntranceKey, React.ReactNode> = {
   projects: <FolderOpen size={28} />,
   travel: <Plane size={28} />,
   games: <Gamepad2 size={28} />,
-  guestbook: <MessageSquare size={28} />,
 };
 
 const sectionPaths: Record<EntranceKey, string> = {
@@ -26,7 +25,6 @@ const sectionPaths: Record<EntranceKey, string> = {
   projects: '/projects',
   travel: '/travel',
   games: '/games',
-  guestbook: '/guestbook',
 };
 
 const sectionColors: Record<EntranceKey, string> = {
@@ -36,7 +34,6 @@ const sectionColors: Record<EntranceKey, string> = {
   projects: '#60A5FA',
   travel: '#F472B6',
   games: '#EF4444',
-  guestbook: '#34D399',
 };
 
 export default function HomePage() {
@@ -139,67 +136,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Previews */}
-      <section className="py-32">
-        <div className="page-container section-padding">
-          <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-light mb-16 text-center" style={{ color: 'var(--text-primary)' }}>
-              {t(featured.title)}
-            </h2>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* Large card */}
-            <ScrollReveal className="md:col-span-2 md:row-span-2" delay={0}>
-              <GlassCard className="h-full overflow-hidden group" hover>
-                <div className="relative h-full min-h-[360px] md:min-h-full">
-                  <img
-                    src={featured.items[0].image}
-                    alt={t(featured.items[0].title)}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(3,7,18,0.9) 0%, rgba(3,7,18,0.2) 50%, transparent 100%)' }} />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                    <span className="text-xs font-medium tracking-wider uppercase mb-2 block" style={{ color: 'var(--accent-cyan)' }}>
-                      {t(featured.items[0].category)}
-                    </span>
-                    <h3 className="text-2xl md:text-3xl font-medium mb-3" style={{ color: 'var(--text-primary)' }}>
-                      {t(featured.items[0].title)}
-                    </h3>
-                    <span className="text-sm inline-flex items-center gap-1 transition-colors" style={{ color: 'var(--text-secondary)' }}>
-                      {t(featured.viewDetails)} <ChevronDown size={14} className="rotate-[-90deg]" />
-                    </span>
-                  </div>
-                </div>
-              </GlassCard>
-            </ScrollReveal>
-
-            {/* Small cards */}
-            {featured.items.slice(1).map((item, i) => (
-              <ScrollReveal key={i} delay={0.15 * (i + 1)}>
-                <GlassCard className="h-full overflow-hidden group" hover>
-                  <div className="relative h-full min-h-[200px]">
-                    <img
-                      src={item.image}
-                      alt={t(item.title)}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(3,7,18,0.85) 0%, rgba(3,7,18,0.2) 50%, transparent 100%)' }} />
-                    <div className="absolute bottom-0 left-0 right-0 p-5">
-                      <span className="text-xs font-medium tracking-wider uppercase mb-1.5 block" style={{ color: 'var(--accent-cyan)' }}>
-                        {t(item.category)}
-                      </span>
-                      <h3 className="text-lg font-medium" style={{ color: 'var(--text-primary)' }}>
-                        {t(item.title)}
-                      </h3>
-                    </div>
-                  </div>
-                </GlassCard>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      
     </div>
   );
 }
